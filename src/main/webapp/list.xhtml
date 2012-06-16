@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/default.xhtml">
+
+    <ui:define name="content">
+        <p>
+            <h:form>
+                <h:dataTable value="#{carsBeanManager.allCars}" var="item">
+                <f:facet name="header">#{msg.cars}</f:facet>
+
+                <h:column>
+                    <f:facet name="header">#{msg.model}</f:facet>
+                    <h:commandLink value="#{item.manufacturer} #{item.model}" action="#{carsBeanManager.show()}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg.mileage}</f:facet>
+                    #{item.mileage}
+                </h:column>
+                
+                <h:column>
+                    <h:commandLink value="#{msg.edit}" action="#{carsBeanManager.edit()}"/> / 
+                    <h:commandLink value="#{msg.delete}" action="#{carsBeanManager.delete()}"/>
+                </h:column>
+            </h:dataTable>
+            </h:form>
+        </p>
+    </ui:define>
+</ui:composition>

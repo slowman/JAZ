@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <h:form id="form">
+        <h:panelGrid columns="3">
+
+            <h:outputText value="#{msg.manufacturer}" />
+            <h:inputText id="manufacturer" value="#{carsBeanManager.car.manufacturer}" size="20">
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="manufacturer" style="color:red" />
+            
+            <h:outputText value="#{msg.model}" />
+            <h:inputText id="model" value="#{carsBeanManager.car.model}" size="60" >
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="model" style="color:red" />
+            
+            <h:outputText value="#{msg.mileage}" />
+            <h:inputText id="mileage" value="#{carsBeanManager.car.mileage}" size="60" >
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="mileage" style="color:red" />
+            
+            <h:outputText value="#{msg.description}" />
+            <h:inputTextarea id="description" value="#{carsBeanManager.car.description}" row="30" cols="60" >
+                <f:validateRequired />
+            </h:inputTextarea>
+            <h:messages for="description" style="color:red" />
+        </h:panelGrid>
+        <p>
+            <h:commandButton value="#{msg.update}" action="#{carsBeanManager.update()}" />
+        </p>
+    </h:form>
+</ui:composition>
